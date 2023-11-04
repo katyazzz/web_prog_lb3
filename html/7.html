@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор возраста</title>
+    <link rel="stylesheet" href="../css/style7.css">
+</head>
+<body>
+    <h1>Введите свою дату рождения</h1>
+
+    <script>
+        function showPrompt(text, callback) {
+            const value = prompt(text);
+            if (value !== null) {
+                callback(value);
+            }
+        }
+
+        function calculateAge(birthYear, birthMonth, birthDay) {
+            const today = new Date();
+            const birthDate = new Date(birthYear, birthMonth - 1, birthDay);
+            const ageInMilliseconds = today - birthDate;
+            const ageInSeconds = ageInMilliseconds / 1000;
+            const ageInMinutes = ageInSeconds / 60;
+            const ageInHours = ageInMinutes / 60;
+            const ageInDays = ageInHours / 24;
+            return Math.floor(ageInDays);
+        }
+
+        showPrompt("Введите год рождения", function(year) {
+            showPrompt("Введите месяц рождения (числом)", function(month) {
+                showPrompt("Введите день рождения (числом)", function(day) {
+                    const ageInDays = calculateAge(year, month, day);
+                    const outputElement = document.createElement("div");
+                    outputElement.innerHTML = `<h2>Вы прожили ${ageInDays} дней</h2>`;
+                    document.body.appendChild(outputElement);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
