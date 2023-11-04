@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Слайд-шоу</title>
+    <link rel="stylesheet" href="../css/style4.css">
+</head>
+<body>
+    <div class="slideshow">
+        <img src="../gif/dog.gif" alt="Собака" class="slide">
+        <img src="../gif/cat.gif" alt="Кот" class="slide">
+        <img src="../gif/rabbit.gif" alt="Кролик" class="slide">
+    </div>
+    <button id="prevButton">Предыдущая</button>
+    <button id="nextButton">Следующая</button>
+
+    <script>
+        var currentSlide = 0;
+var slides = document.querySelectorAll('.slide');
+
+function showSlide(index) {
+    for (var i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+    }
+    slides[index].style.display = 'block';
+}
+
+document.getElementById('prevButton').addEventListener('click', function() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length; // Циклическое переключение
+    showSlide(currentSlide);
+});
+
+document.getElementById('nextButton').addEventListener('click', function() {
+    currentSlide = (currentSlide + 1) % slides.length; // Циклическое переключение
+    showSlide(currentSlide);
+});
+
+showSlide(currentSlide);
+
+    </script>
+</body>
+</html>
