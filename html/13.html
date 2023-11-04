@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анкета</title>
+    <link rel="stylesheet" href="../css/style13.css">
+</head>
+<body>
+    <form id="bioForm">
+        <h1>Анкета</h1>
+        <label for="lastName">Фамилия:</label>
+        <input type="text" id="lastName" required><br><br>
+
+        <label for="firstName">Имя:</label>
+        <input type="text" id="firstName" required><br><br>
+
+        <label for="middleName">Отчество:</label>
+        <input type="text" id="middleName" required><br><br>
+
+        <label for="birthYear">Год рождения:</label>
+        <input type="text" id="birthYear" required><br><br>
+
+        <label for="birthPlace">Место рождения:</label>
+        <input type="text" id="birthPlace" required><br><br>
+
+        <label for="favoriteActivity">Любимое занятие:</label>
+        <input type="text" id="favoriteActivity" required><br><br>
+
+        <label for="leastFavoriteActivity">Не любимое занятие:</label>
+        <input type="text" id="leastFavoriteActivity" required><br><br>
+
+        <button type="button" onclick="generateBio()">Сформировать биографию</button>
+    </form>
+
+    <script>
+        function generateBio() {
+            var lastName = document.getElementById('lastName').value;
+            var firstName = document.getElementById('firstName').value;
+            var middleName = document.getElementById('middleName').value;
+            var birthYear = document.getElementById('birthYear').value;
+            var birthPlace = document.getElementById('birthPlace').value;
+            var favoriteActivity = document.getElementById('favoriteActivity').value;
+            var leastFavoriteActivity = document.getElementById('leastFavoriteActivity').value;
+
+            var bioContent = `
+                <h1>О себе</h1>
+                <p>Я ${lastName} ${firstName} ${middleName} родился в ${birthYear} году в городе ${birthPlace}.</p>
+                <p>Больше всего я люблю ${favoriteActivity} и не люблю ${leastFavoriteActivity}. Было бы замечательно, всю жизнь только ${favoriteActivity}, но к сожалению приходится иногда и ${leastFavoriteActivity}.</p>
+            `;
+
+            var bioWindow = window.open('', '_blank');
+            bioWindow.document.write(bioContent);
+        }
+    </script>
+</body>
+</html>
