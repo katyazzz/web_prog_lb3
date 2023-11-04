@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма с животными</title>
+    <link rel="stylesheet" href="../css/style3.css">
+</head>
+<body>
+    <table class="animal-table">
+        <tr>
+            <th>Название животного</th>
+            <th>Изображение</th>
+        </tr>
+        <tr>
+            <td onmouseover="showImage('../gif/dog.gif')" onmouseout="hideImage()">Собака</td>
+            <td rowspan="3"><img src="../gif/empty.png" id="animalImage" alt="Empty"></td>
+        </tr>
+        <tr>
+            <td onmouseover="showImage('../gif/cat.gif')" onmouseout="hideImage()">Кот</td>
+        </tr>
+        <tr>
+            <td onmouseover="showImage('../gif/rabbit.gif')" onmouseout="hideImage()">Кролик</td>
+        </tr>
+    </table>
+
+    <script>
+        function showImage(imageName) {
+            var animalImage = document.getElementById('animalImage');
+            animalImage.src = imageName;
+        }
+
+        function hideImage() {
+            var animalImage = document.getElementById('animalImage');
+            animalImage.src = '../gif/empty.png';
+        }
+    </script>
+</body>
+</html>
