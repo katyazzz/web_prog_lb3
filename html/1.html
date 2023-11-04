@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея автомобилей</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="gallery">
+        <div class="car" onmouseover="showInfo('Audi', '$50,000')" onmouseout="hideInfo()">
+            <img src="car1.jpg" alt="Audi">
+        </div>
+        <div class="car" onmouseover="showInfo('BMW', '$60,000')" onmouseout="hideInfo()">
+            <img src="car2.jpg" alt="BMW">
+        </div>
+        <div class="car" onmouseover="showInfo('Mercedes', '$70,000')" onmouseout="hideInfo()">
+            <img src="car3.jpg" alt="Mercedes">
+        </div>
+        <div class="car" onmouseover="showInfo('Toyota', '$40,000')" onmouseout="hideInfo()">
+            <img src="car4.jpg" alt="Toyota">
+        </div>
+    </div>
+    <div id="info"></div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+body {
+    background-color: #e8fcc2;
+    color: #2c2a2c;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.gallery {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.car {
+    position: relative;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.car img {
+    max-width: 200px;
+    transition: transform 0.3s;
+}
+
+.car img:hover {
+    transform: scale(1.1);
+}
+
+#info {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
