@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>До каникул осталось</title>
+    <link rel="stylesheet" href="../css/style8_1.css">
+</head>
+<body>
+    <form>
+        <label for="countdown">До каникул осталось:</label>
+        <input type="text" id="countdown" readonly>
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    var today = new Date();
+    var vacationDate = new Date('2023-12-31'); // Здесь нужно указать дату начала каникул
+
+    var daysRemaining = Math.ceil((vacationDate - today) / (1000 * 60 * 60 * 24));
+
+    if (daysRemaining >= 0) {
+        document.getElementById('countdown').value = daysRemaining + ' дней';
+    } else {
+        document.getElementById('countdown').value = 'Каникулы уже начались!';
+    }
+});
+
+    </script>
+</body>
+</html>
