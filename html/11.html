@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страничка по заказу</title>
+    <link rel="stylesheet" href="../css/style11.css">
+</head>
+<body>
+    <h1>Страничка по заказу</h1>
+    <form id="appForm">
+        <label for="pageTitle">Заголовок:</label>
+        <input type="text" id="pageTitle" required><br><br>
+
+        <label>Картинка:</label><br>
+        <input type="radio" name="image" value="../kar/zay.jpeg" required> Зайчик
+        <input type="radio" name="image" value="../kar/dragon.jpg" required> Дракон
+        <input type="radio" name="image" value="../kar/more.jpeg" required> Море<br><br>
+
+        <label for="caption">Подпись:</label>
+        <input type="text" id="caption" required><br><br>
+
+        <label for="bgColor">Цвет фона:</label>
+        <select id="bgColor" required>
+            <option value="white">Белый</option>
+            <option value="lightgray">Светло-серый</option>
+            <option value="lightblue">Светло-голубой</option>
+        </select><br><br>
+
+        <label>Цвет текста:</label><br>
+        <input type="radio" name="textColor" value="black" required> Черный
+        <input type="radio" name="textColor" value="darkblue" required> Темно-синий
+        <input type="radio" name="textColor" value="green" required> Зеленый<br><br>
+
+        <button type="button" onclick="showAppPage()">Показать готовую страницу</button>
+        <button type="reset">Сбросить параметры</button>
+    </form>
+
+    <script>
+
+function showAppPage() {
+    var pageTitle = document.getElementById('pageTitle').value;
+    var image = document.querySelector('input[name="image"]:checked').value;
+    var caption = document.getElementById('caption').value;
+    var bgColor = document.getElementById('bgColor').value;
+    var textColor = document.querySelector('input[name="textColor"]:checked').value;
+
+    var appWindow = window.open('', '_blank');
+    var content = `
+        <html lang="ru">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>${pageTitle}</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    text-align: center;
+                    background-color: ${bgColor};
+                    color: ${textColor};
+                }
+                img {
+                    max-width: 100%;
+                    height: auto;
+                }
+                .caption {
+                    margin-top: 20px;
+                }
+            </style>
+        </head>
+        <body>
+            <h1>${pageTitle}</h1>
+            <img src="${image}" alt="Image">
+            <div class="caption">${caption}</div>
+        </body>
+        </html>
+    `;
+
+    appWindow.document.write(content);
+}
+
+
+    </script>
+</body>
+</html>
