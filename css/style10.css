@@ -1,0 +1,21 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 100px;
+}
+
+input {
+    padding: 10px;
+    font-size: 18px;
+    margin-bottom: 10px; /* Увеличенное расстояние между полем ввода и следующим элементом */
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+#result {
+    margin-top: 20px; /* Увеличенное расстояние между итоговым значением и кнопкой */
+}

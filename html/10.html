@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Площадь прямоугольника</title>
+    <link rel="stylesheet" href="../css/style10.css">
+</head>
+<body>
+    <form>
+        <label for="length">Длина:</label>
+        <input type="number" id="length" required><br>
+
+        <label for="width">Ширина:</label>
+        <input type="number" id="width" required><br>
+
+        <button type="button" onclick="calculateArea()">Вычислить площадь</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+
+function calculateArea() {
+    var length = parseFloat(document.getElementById('length').value);
+    var width = parseFloat(document.getElementById('width').value);
+
+    if (length >= 0 && width >= 0) {
+        var area = length * width;
+        alert('Площадь прямоугольника: ' + area);
+    } else {
+        alert('Пожалуйста, введите положительные числа для длины и ширины.');
+    }
+}
+
+
+    </script>
+</body>
+</html>
