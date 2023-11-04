@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Текущая дата</title>
+    <link rel="stylesheet" href="../css/style6.css">
+</head>
+<body>
+    <div class="date-info">
+        <p id="dateOutput"></p>
+    </div>
+    <script>
+        var daysOfWeek = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+var months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+
+var currentDate = new Date();
+var dayOfWeek = daysOfWeek[currentDate.getDay()];
+var day = currentDate.getDate();
+var month = months[currentDate.getMonth()];
+var year = currentDate.getFullYear();
+
+var output = "Сегодня " + day + " " + month + " " + year + " года, " + dayOfWeek;
+document.getElementById('dateOutput').textContent = output;
+
+    </script>
+</body>
+</html>
