@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Слайд-шоу</title>
+    <link rel="stylesheet" href="../css/style2.css">
+</head>
+<body>
+    <div class="gallery">
+        <figure onmouseover="showInfo('Audi', '$50,000')" onmouseout="hideInfo()">
+            <img src="../img/audi.jpeg" alt="Audi" >
+            <figcaption>Audi</figcaption>
+    </figure>
+    <figure onmouseover="showInfo('BMW', '$60,000')" onmouseout="hideInfo()">
+            <img src="../img/bmw.jpeg" alt="BMW">
+            <figcaption>BMW</figcaption>
+        </figure>
+        <figure onmouseover="showInfo('Mercedes', '$70,000')" onmouseout="hideInfo()">
+            <img src="../img/mercedes.jpeg" alt="Mercedes">
+            <figcaption>Mercedes</figcaption>
+        </figure>
+        <figure onmouseover="showInfo('Lamborghini', '$140,000')" onmouseout="hideInfo()">
+            <img src="../img/lambo.jpeg" alt="Lamborghini">
+            <figcaption>Lamborghini</figcaption>
+        </figure>
+        <figure onmouseover="showInfo('Tesla', '$65,000')" onmouseout="hideInfo()">
+            <img src="../img/tesla.jpeg" alt="Tesla">
+            <figcaption>Tesla</figcaption>
+        </figure>
+        <figure onmouseover="showInfo('Ferrari', '$200,000')" onmouseout="hideInfo()">
+            <img src="../img/ferrari.jpeg" alt="Ferrari">
+            <figcaption>Ferrari</figcaption>
+        </figure>
+        <figure onmouseover="showInfo('Porsche', '$80,000')" onmouseout="hideInfo()">
+            <img src="../img/porsche.jpeg" alt="Porsche">
+            <figcaption>Porsche</figcaption>
+        </figure>
+        <figure onmouseover="showInfo('Dodge', '$90,000')" onmouseout="hideInfo()">
+            <img src="../img/dodge.jpeg" alt="Dodge">
+            <figcaption>Dodge</figcaption>
+        </figure>
+    </div>
+    <div id="info"></div>
+    <button id="prevButton">Предыдущая</button>
+    <button id="nextButton">Следующая</button>
+    <script>
+        var currentSlide = 0;
+
+        function showSlide(index) {
+            var slides = document.querySelectorAll('.gallery figure');
+            for (var i = 0; i < slides.length; i++) {
+                slides[i].style.display = 'none';
+            }
+            slides[index].style.display = 'block';
+        }
+
+        function showInfo(make, price) {
+            var infoDiv = document.getElementById('info');
+            infoDiv.innerHTML = 'Марка: ' + make + '<br> Стоимость: ' + price;
+        }
+
+        function hideInfo() {
+            var infoDiv = document.getElementById('info');
+            infoDiv.innerHTML = '';
+        }
+
+        document.getElementById('prevButton').addEventListener('click', function() {
+            currentSlide = (currentSlide - 1 + 8) % 8; // Циклическое переключение
+            showSlide(currentSlide);
+        });
+
+        document.getElementById('nextButton').addEventListener('click', function() {
+            currentSlide = (currentSlide + 1) % 8; // Циклическое переключение
+            showSlide(currentSlide);
+        });
+
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
