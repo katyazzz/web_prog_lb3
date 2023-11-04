@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Информация о дате рождения</title>
+    <link rel="stylesheet" href="../css/style8_1.css">
+    <script src="js/8_1.js"></script>
+</head>
+<body>
+    <h1>Введите свою дату рождения</h1>
+
+    <script>
+        const months = [
+            "Января", "Февраля", "Марта", "Апреля", "Мая", "Июня",
+            "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря"
+        ];
+
+        const daysOfWeek = [
+            "Воскресенье", "Понедельник", "Вторник",
+            "Среда", "Четверг", "Пятница", "Суббота"
+        ];
+
+        function showPrompt(text, callback) {
+            const value = prompt(text);
+            if (value !== null) {
+                callback(value);
+            }
+        }
+
+        function formatDate(year, month, day) {
+            const date = new Date(year, month - 1, day);
+            const dayOfWeek = daysOfWeek[date.getDay()];
+            const monthName = months[month - 1];
+            return `${dayOfWeek}, ${day} ${monthName} ${year} года`;
+        }
+
+        showPrompt("Введите год рождения", function(year) {
+            showPrompt("Введите месяц рождения (числом)", function(month) {
+                showPrompt("Введите день рождения (числом)", function(day) {
+                    const formattedDate = formatDate(year, month, day);
+                    const outputElement = document.createElement("div");
+                    outputElement.innerHTML = `<h2>${formattedDate}</h2>`;
+                    document.body.appendChild(outputElement);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
