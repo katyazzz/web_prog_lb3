@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор сказок</title>
+    <link rel="stylesheet" href="../css/style14.css">
+</head>
+<body>
+    <h1>Генератор сказок</h1>
+    <form id="fairytaleForm">
+        <label for="heroName">Имя героя:</label>
+        <input type="text" id="heroName" required><br><br>
+
+        <label for="activity">Любимое занятие:</label>
+        <input type="text" id="activity" required><br><br>
+
+        <label for="friendName">Друг героя:</label>
+        <input type="text" id="friendName" required><br><br>
+
+        <label for="gift">Любимый подарок:</label>
+        <input type="text" id="gift" required><br><br>
+
+        <button type="button" onclick="generateFairytale()">Сгенерировать сказку</button>
+    </form>
+
+    <script >
+
+function generateFairytale() {
+    var heroName = document.getElementById('heroName').value;
+    var activity = document.getElementById('activity').value;
+    var friendName = document.getElementById('friendName').value;
+    var gift = document.getElementById('gift').value;
+
+    var fairytaleTitle = `${heroName} и волшебный ${gift}`;
+    
+    var fairytale = `
+        Однажды в далеком королевстве жил-был герой по имени ${heroName}. 
+        Его любимое занятие - ${activity}. 
+        У него был друг, звали его ${friendName}. 
+        Они вместе пережили множество увлекательных приключений и разделяли радости и печали. 
+        Но вот однажды, в день рождения ${heroName}, ${friendName} подарил ему волшебный артефакт - ${gift}. 
+        Этот артефакт даровал ${heroName} неограниченные возможности и стал символом их дружбы. 
+        С тех пор они вместе смело шагали по своим мечтам и достигали невероятных высот. 
+        И их дружба стала ярким примером того, как важно иметь верного друга.
+    `;
+
+    var fairytaleWindow = window.open('', '_blank');
+    fairytaleWindow.document.write(`
+        <html lang="ru">
+            <head>
+                <meta charset="UTF-8">
+                <title>${fairytaleTitle}</title>
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        text-align: center;
+                    }
+                    h1 {
+                        color: blue;
+                    }
+                </style>
+            </head>
+            <body>
+                <h1>${fairytaleTitle}</h1>
+                ${fairytale}
+            </body>
+        </html>
+    `);
+}
+
+
+
+
+    </script>
+</body>
+</html>
