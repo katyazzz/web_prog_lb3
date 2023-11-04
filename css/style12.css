@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: left;
+}
+
+h1 {
+    color: darkblue;
+    text-align: center;
+}
+
+form {
+    margin: 20px auto;
+    max-width: 500px;
+    padding: 20px;
+    background-color: lightgray;
+    border-radius: 10px;
+}
+
+label, input, select {
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+button[type="reset"] {
+    background-color: lightblue;
+}
+
+
+/* Добавляем стили для селектора option */
+option.data-image {
+    /* background-size: contain; Устанавливаем размер фонового изображения так, чтобы оно полностью вмещалось в элемент */
+    height: 400px; /* Устанавливаем высоту */
+}

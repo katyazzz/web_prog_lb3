@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страничка по заказу</title>
+    <link rel="stylesheet" href="../css/style11.css">
+</head>
+<body>
+    <h1>Страничка по заказу</h1>
+    <form id="appForm">
+        <label for="artist">Художник:</label>
+        <select id="artist" required>
+            <option value="Айвазовский" data-image="../hud/ayva.jpeg" >Айвазовский</option>
+            <option value="Леонардо да Винчи" data-image="../hud/davinci.jpeg">Леонардо да Винчи</option>
+            
+            <option value="Пикассо" data-image="../hud/Picasso.webp">Пабло Пикассо</option>
+        </select><br><br>
+
+        <label for="caption">Подпись:</label>
+        <input type="text" id="caption" required><br><br>
+
+        <label>Картинка для фона:</label><br>
+        <input type="radio" name="bgImage" value="../bg/bg1.jpeg" required> Фон 1
+        <input type="radio" name="bgImage" value="../bg/bg2.jpg" required> Фон 2
+        <input type="radio" name="bgImage" value="../bg/bg3.png" required> Фон 3
+        <input type="radio" name="bgImage" value="../bg/bg4.jpg" required> Фон 4
+        <br><br>
+
+        <label>Декорирование текста:</label><br>
+        <input type="checkbox" name="italic"> Курсив
+        <input type="checkbox" name="bold"> Жирный
+        <input type="checkbox" name="underline"> Подчеркнутый<br><br>
+
+        <button type="button" onclick="showAppPage()">Показать готовую страницу</button>
+        <button type="reset">Сбросить параметры</button>
+    </form>
+
+    <script>
+        function showAppPage() {
+            var artist = document.getElementById('artist').value;
+            var caption = document.getElementById('caption').value;
+            var bgImage = document.querySelector('input[name="bgImage"]:checked').value;
+            var italic = document.querySelector('input[name="italic"]').checked;
+            var bold = document.querySelector('input[name="bold"]').checked;
+            var underline = document.querySelector('input[name="underline"]').checked;
+
+            var appWindow = window.open('', '_blank');
+            var fontStyle = '';
+            
+            if (italic) {
+                fontStyle += 'italic ';
+            }
+            if (bold) {
+                fontStyle += 'bold ';
+            }
+            if (underline) {
+                fontStyle += 'underline ';
+            }
+
+            var selectedOption = document.getElementById('artist').options[document.getElementById('artist').selectedIndex];
+            var artistImage = selectedOption.getAttribute('data-image');
+
+            var content = `
+                <html lang="ru">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>${artist}</title>
+                    <style>
+                        body {
+                            font-family: Arial, sans-serif;
+                            text-align: center;
+                            background-image: url('${bgImage}');
+                            background-size: cover;
+                            color: white;
+                        }
+                        .portrait {
+                            max-width: 100%;
+                            height: auto;
+                        }
+                        .caption {
+                            font-style: ${fontStyle};
+                            font-size: 20px;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <h1>${artist}</h1>
+                    <img src="${artistImage}" class="portrait" alt="${artist}">
+                    <div class="caption">${caption}</div>
+                </body>
+                </html>
+            `;
+
+            appWindow.document.write(content);
+        }
+    </script>
+</body>
+</html>
