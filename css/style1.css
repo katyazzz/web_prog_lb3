@@ -1,0 +1,35 @@
+body {
+    background-color: #d1fcfb;
+    color: #270b42;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+figure {
+    /* margin: 10px; */
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+img {
+    width: 270px;
+    height: 180px;
+    transition: transform 0.3s;
+}
+
+figcaption {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+figure:hover {
+    transform: scale(1.1);
+}
